@@ -19,3 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/poll', 'PollController@index');
+Route::get('/poll/create', 'PollController@create');
