@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Poll;
 use App\Option;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class PollController extends Controller
+class OptionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +16,7 @@ class PollController extends Controller
      */
     public function index()
     {
-       $polls = DB::table('polls')->get();
-       $view =view('layouts.create');
-       $view->polls = $polls;
-       return $view;
+        //
     }
 
     /**
@@ -30,8 +26,9 @@ class PollController extends Controller
      */
     public function create()
     {
-     $view =view('layouts.create');
-     return $view;
+        $option = Option::all();
+        $view =view('layouts.option');
+        return $view;
     }
 
     /**
@@ -42,21 +39,11 @@ class PollController extends Controller
      */
     public function store(Request $request)
     {
-        $newRow = new Poll();
-        $newRow ->user_id = Auth::user()->id;
-
-        $newRow ->code =uniqid();
-        $newRow ->name= $request ->get('name');
-        //$newRow ->option= $request ->get('option');
-        $newRow ->description = $request ->get('description');
-        $newRow ->save();
-
- // $newOption =new Option();
-        // $newOption ->option = $request->get('option');
-        // $newOption ->poll_id=$newRow->id;
-        // $newOption->save();
-
-        return redirect(action('PollController@index'));
+        $newOption =new Option();
+        $newOption ->option = $request->get('option_name');
+        $newOption ->poll_id=$newRow->id;
+        $newOption->save();
+        return redirect(action('OptionController@'));
     }
 
     /**
@@ -67,10 +54,7 @@ class PollController extends Controller
      */
     public function show($id)
     {
-        $polls =\App\Poll::find($id);
-        $view =view('polls.show');
-        $view->polls =$polls;
-        return $view;
+        //
     }
 
     /**
@@ -104,6 +88,6 @@ class PollController extends Controller
      */
     public function destroy($id)
     {
-
+        //
     }
 }

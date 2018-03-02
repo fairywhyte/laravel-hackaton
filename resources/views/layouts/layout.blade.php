@@ -21,7 +21,7 @@
     <!-- CONTENT -->
 @yield('content')
     <!-- FOOTER -->
-@include('questions/footer')
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
