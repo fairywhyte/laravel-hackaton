@@ -14,7 +14,7 @@
         <label for="formGroupExampleInput2">Description</label>
         <input type="text" name="description" class="form-control" id="formGroupExampleInput2" placeholder=" My Description">
     </div>
-  <input type="submit">Submit</input>
+  <input type="submit"></input>
     </form>
     </div>
 @endsection

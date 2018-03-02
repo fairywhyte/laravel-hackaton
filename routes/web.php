@@ -22,9 +22,15 @@ Route::get('/poll', 'PollController@index');
 Route::get('/poll/create', 'PollController@create');
 Route::post('/poll/store', 'PollController@store');
 
+Route::get('/poll/results', 'ResultController@index');
+
+
 Route::get('/poll/{code}', 'PollController@show');
 Route::get('/poll/{code}/new_option', 'OptionController@create');
 Route::post('/poll/{code}/new_option', 'OptionController@store');
+
+Route::post('/poll/{code}/result', 'ResultController@store');
+
 //we will know to which poll that we are going to save
 
 
