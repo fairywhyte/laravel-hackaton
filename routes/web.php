@@ -22,5 +22,11 @@ Route::get('/poll', 'PollController@index');
 Route::get('/poll/create', 'PollController@create');
 Route::post('/poll/store', 'PollController@store');
 
+Route::get('/poll/{code}', 'PollController@show');
+Route::get('/poll/{code}/new_option', 'PollController@create');
+Route::post('/poll/{code}/new_option', 'PollController@store');
+
+
 Route::get('/createoption/', 'OptionController@create');
 Route::post('/createoption/store', 'OptionController@store');
+

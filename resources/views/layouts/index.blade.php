@@ -15,7 +15,7 @@
                             @foreach($polls as $poll)
                                 <div class="col-md-4">
                                     <h2>{{ $poll-> name }}</h2>
-                                    <p><a class="btn btn-default" href ="" role="button">View Poll</a></p>
+                                    <p><a class="btn btn-default" href ="{{ action('PollController@show',[$poll->code]) }}" role="button">View Poll</a></p>
                                     <h2>{{ $poll -> description }}</h2>
                                 </div>
                             @endforeach

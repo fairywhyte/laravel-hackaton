@@ -18,7 +18,7 @@ class PollController extends Controller
     public function index()
     {
        $polls = DB::table('polls')->get();
-       $view =view('layouts.create');
+       $view =view('layouts.index');
        $view->polls = $polls;
        return $view;
     }
@@ -44,18 +44,10 @@ class PollController extends Controller
     {
         $newRow = new Poll();
         $newRow ->user_id = Auth::user()->id;
-
         $newRow ->code =uniqid();
         $newRow ->name= $request ->get('name');
-        //$newRow ->option= $request ->get('option');
         $newRow ->description = $request ->get('description');
         $newRow ->save();
-
- // $newOption =new Option();
-        // $newOption ->option = $request->get('option');
-        // $newOption ->poll_id=$newRow->id;
-        // $newOption->save();
-
         return redirect(action('PollController@index'));
     }
 
@@ -65,11 +57,12 @@ class PollController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($code)
     {
-        $polls =\App\Poll::find($id);
-        $view =view('polls.show');
-        $view->polls =$polls;
+        $shownPoll = Poll::where('code', '=', $code)->first();
+        // $polls= $shownPoll->polls_tbl()->get();
+        $view =view('layouts.showpoll');
+        $view->poll =$shownPoll;
         return $view;
     }
 

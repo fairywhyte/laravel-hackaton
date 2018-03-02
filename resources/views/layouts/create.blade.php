@@ -14,7 +14,7 @@
         <label for="formGroupExampleInput2">Description</label>
         <input type="text" name="description" class="form-control" id="formGroupExampleInput2" placeholder=" My Description">
     </div>
-    <a class= "btn" href="{{ action('OptionController@create') }}">Insert Options</a>
+    <button type="submit" >Save</button>
 
     </form>
     </div>
