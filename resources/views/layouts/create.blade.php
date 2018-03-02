@@ -14,8 +14,7 @@
         <label for="formGroupExampleInput2">Description</label>
         <input type="text" name="description" class="form-control" id="formGroupExampleInput2" placeholder=" My Description">
     </div>
-    <button type="submit" >Save</button>
-
+    <p><a class="btn btn-default" href ="{{ action('PollController@show',[$poll->code]) }}" role="button">Next</a></p>
     </form>
     </div>
 @endsection
