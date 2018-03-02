@@ -23,10 +23,11 @@ Route::get('/poll/create', 'PollController@create');
 Route::post('/poll/store', 'PollController@store');
 
 Route::get('/poll/{code}', 'PollController@show');
-Route::get('/poll/{code}/new_option', 'PollController@create');
-Route::post('/poll/{code}/new_option', 'PollController@store');
+Route::get('/poll/{code}/new_option', 'OptionController@create');
+Route::post('/poll/{code}/new_option', 'OptionController@store');
+//we will know to which poll that we are going to save
 
 
-Route::get('/createoption/', 'OptionController@create');
-Route::post('/createoption/store', 'OptionController@store');
+// Route::get('/createoption/', 'OptionController@create');
+// Route::post('/createoption/store', 'OptionController@store');
 
